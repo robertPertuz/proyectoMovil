@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Text(
-        'Hello World',
+        'Hola Mundo',
         textDirection: TextDirection.ltr,
       ),
     );
