@@ -10,7 +10,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Crud Usando HTTP',
+      title: 'Bus',
       theme: ThemeData(primarySwatch: Colors.green),
       initialRoute: '/login',
       routes: {
