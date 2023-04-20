@@ -1,15 +1,6 @@
+import 'package:bus_mate/ui/app.dart';
 import 'package:flutter/material.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Hola ',
-        textDirection: TextDirection.ltr,
-      ),
-    );
-  }
+void main(List<String> args) {
+  runApp(const App());
 }
