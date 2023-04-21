@@ -13,7 +13,6 @@ class Login extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            chiild: 
             const Text(
               'Bus Mate',
               style: TextStyle(
@@ -41,7 +40,7 @@ class Login extends StatelessWidget {
               child: TextField(
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Correo',
+                  labelText: 'Correo email@example',
                 ),
               ),
             ),
@@ -83,9 +82,6 @@ class Login extends StatelessWidget {
               ),
               width: 300,
               child: ElevatedButton(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                ),
                 onPressed: () {},
                 child: const Text('Registrarse'),
               ),
