@@ -7,12 +7,13 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: Container(
+      child: Container(
         width: double.infinity,
         color: const Color(0xff88d948),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            chiild: 
             const Text(
               'Bus Mate',
               style: TextStyle(
@@ -64,6 +65,9 @@ class Login extends StatelessWidget {
               height: 20,
             ),
             Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+              ),
               width: 300,
               child: ElevatedButton(
                 onPressed: () {},
@@ -74,8 +78,14 @@ class Login extends StatelessWidget {
               height: 20,
             ),
             Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+              ),
               width: 300,
               child: ElevatedButton(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
                 onPressed: () {},
                 child: const Text('Registrarse'),
               ),
