@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class BusRouteMap extends StatefulWidget {
+  const BusRouteMap({Key? key}) : super(key: key);
   @override
   _BusRouteMapState createState() => _BusRouteMapState();
 }
@@ -9,73 +10,29 @@ class BusRouteMap extends StatefulWidget {
 class _BusRouteMapState extends State<BusRouteMap> {
   late GoogleMapController mapController;
 
-  final LatLng _initialPosition =
-      const LatLng(37.77483, -122.41942); // San Francisco
-  LatLng _lastMapPosition = const LatLng(37.77483, -122.41942); // San Francisco
+  final LatLng _center = const LatLng(45.521563, -122.677433);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
 
   Set<Marker> _markers = {};
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Bus Route Map'),
-      ),
-      body: Stack(
-        children: [
-          GoogleMap(
-            initialCameraPosition: CameraPosition(
-              target: _initialPosition,
-              zoom: 12.0,
-            ),
-            onMapCreated: (GoogleMapController controller) {
-              mapController = controller;
-            },
-            markers: _markers,
-            onCameraMove: (CameraPosition position) {
-              _lastMapPosition = position.target;
-            },
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Maps Sample App'),
+          backgroundColor: Colors.green[700],
+        ),
+        body: GoogleMap(
+          onMapCreated: _onMapCreated,
+          initialCameraPosition: CameraPosition(
+            target: _center,
+            zoom: 11.0,
           ),
-          Positioned(
-            top: 20.0,
-            left: 20.0,
-            right: 20.0,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Enter starting point',
-                          border: InputBorder.none,
-                          icon: Icon(Icons.location_on, color: Colors.green),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Enter destination',
-                          border: InputBorder.none,
-                          icon: Icon(Icons.location_on, color: Colors.green),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
