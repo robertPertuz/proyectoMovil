@@ -1,3 +1,4 @@
+import 'package:com.proyecto.busmate/domain/controller/controllerUser.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +9,7 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   bool _showPassword = false;
+  ControlUserAuth controlU = Get.find();
 
   final TextEditingController controlEmail = TextEditingController();
   final TextEditingController controlPassword = TextEditingController();
