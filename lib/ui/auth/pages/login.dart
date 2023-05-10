@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -13,13 +15,7 @@ class Login extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Bus Mate',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 50,
-              ),
-            ),
+            Image.asset('assets/images/logo.png', width: 200),
             const SizedBox(),
             const Text(
               'Iniciar sesión',
@@ -65,12 +61,20 @@ class Login extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(30),
               ),
-              width: 300,
+              width: 200,
+              height: 50,
               child: ElevatedButton(
                 onPressed: () {},
-                child: const Text('Iniciar sesión'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  onPrimary: Colors.black,
+                ),
+                child: const Text(
+                  'Iniciar sesión',
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
             ),
             const SizedBox(
@@ -78,12 +82,18 @@ class Login extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(30),
               ),
-              width: 300,
+              width: 200,
+              height: 50,
               child: ElevatedButton(
                 onPressed: () {},
-                child: const Text('Registrarse'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  onPrimary: Colors.black,
+                ),
+                child:
+                    const Text('Registrarse', style: TextStyle(fontSize: 20)),
               ),
             ),
           ],
