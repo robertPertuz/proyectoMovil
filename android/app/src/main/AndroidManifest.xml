@@ -5,6 +5,7 @@
         android:label="bus_mate"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+       tools:overrideLibrary="io.flutter.plugins.googlemaps">
         <activity
             android:name=".MainActivity"
             android:exported="true"

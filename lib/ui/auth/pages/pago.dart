@@ -19,6 +19,7 @@ class _PaymentViewState extends State<PaymentView> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Pagos'),
+        centerTitle: true,
       ),
       body: Column(
         children: [

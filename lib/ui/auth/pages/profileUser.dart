@@ -22,14 +22,14 @@ class Profile extends StatelessWidget {
               leading: const Icon(Icons.bus_alert_outlined),
               title: const Text('Rutas'),
               onTap: () {
-                Navigator.pop(context);
+                Get.toNamed('/ruta');
               },
             ),
             ListTile(
               leading: const Icon(Icons.money_sharp),
               title: const Text('Pagos'),
               onTap: () {
-                Navigator.pop(context);
+                Get.toNamed('/pago');
               },
             ),
             ListTile(
