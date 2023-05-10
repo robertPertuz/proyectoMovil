@@ -12,7 +12,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Bus',
       theme: ThemeData(primarySwatch: Colors.green),
-      initialRoute: '/registrar',
+      initialRoute: '/login',
       routes: {
         "/login": (context) => const Login(),
         "/registrar": (context) => RegisterScreen(),

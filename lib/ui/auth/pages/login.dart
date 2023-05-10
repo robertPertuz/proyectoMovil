@@ -15,7 +15,11 @@ class Login extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/logo.png', width: 200),
+            Image.asset(
+              'assets/images/logo.png',
+              width: 200,
+              height: 200,
+            ),
             const SizedBox(),
             const Text(
               'Iniciar sesión',
@@ -68,8 +72,8 @@ class Login extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  onPrimary: Colors.black,
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.white,
                 ),
                 child: const Text(
                   'Iniciar sesión',
@@ -89,8 +93,8 @@ class Login extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  onPrimary: Colors.black,
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.white,
                 ),
                 child:
                     const Text('Registrarse', style: TextStyle(fontSize: 20)),
