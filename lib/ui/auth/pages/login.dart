@@ -37,8 +37,8 @@ class Login extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
               ),
-              child: TextField(
-                decoration: const InputDecoration(
+              child: const TextField(
+                decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Correo email@example',
                 ),
