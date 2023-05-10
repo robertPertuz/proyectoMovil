@@ -1,4 +1,4 @@
-package com.example.bus_mate
+package com.proyecto.busmate
 
 import io.flutter.embedding.android.FlutterActivity
 
