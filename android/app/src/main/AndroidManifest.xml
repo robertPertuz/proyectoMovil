@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bus_mate">
+    package="com.proyecto.busmate">
         <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="bus_mate"

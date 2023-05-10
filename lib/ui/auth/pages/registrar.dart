@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -115,7 +116,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               SizedBox(height: 20),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed('/login');
+                },
                 child: Text(
                   '¿Ya estás registrado? Inicia sesión',
                   style: TextStyle(color: Colors.white),
