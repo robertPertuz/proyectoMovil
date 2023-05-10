@@ -43,7 +43,7 @@ class Profile extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-        title: const Text('Bus Map'),
+        title: const Text('Mapa'),
       ),
     );
   }
