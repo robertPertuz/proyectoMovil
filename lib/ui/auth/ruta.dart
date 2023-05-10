@@ -16,8 +16,6 @@ class _BusRouteMapState extends State<BusRouteMap> {
     mapController = controller;
   }
 
-  Set<Marker> _markers = {};
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

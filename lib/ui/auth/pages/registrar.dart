@@ -16,13 +16,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF4CAF50),
+      backgroundColor: Color(0xff88d948),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Image.asset(
+                'assets/images/logo.png',
+                width: 200,
+                height: 200,
+              ),
               Text(
                 'Registro de Usuario',
                 style: TextStyle(
@@ -37,8 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Nombre de usuario',
-                  labelStyle:
-                      TextStyle(color: Color.fromARGB(255, 32, 194, 17)),
+                  labelStyle: TextStyle(color: Color.fromARGB(255, 59, 61, 59)),
                   filled: true,
                   fillColor: Colors.white.withOpacity(0.8),
                   enabledBorder: OutlineInputBorder(
@@ -61,8 +65,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Correo electrónico',
-                  labelStyle:
-                      TextStyle(color: Color.fromARGB(255, 14, 206, 33)),
+                  labelStyle: TextStyle(color: Color.fromARGB(255, 59, 61, 59)),
                   filled: true,
                   fillColor: Colors.white.withOpacity(0.8),
                   enabledBorder: OutlineInputBorder(
@@ -86,8 +89,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Contraseña',
-                  labelStyle:
-                      TextStyle(color: Color.fromARGB(255, 26, 197, 80)),
+                  labelStyle: TextStyle(color: Color.fromARGB(255, 59, 61, 59)),
                   filled: true,
                   fillColor: Colors.white.withOpacity(0.8),
                   enabledBorder: OutlineInputBorder(
