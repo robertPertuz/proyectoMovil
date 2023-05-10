@@ -9,6 +9,10 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   bool _showPassword = false;
 
+  final TextEditingController controlEmail = TextEditingController();
+  final TextEditingController controlPassword = TextEditingController();
+  final TextEditingController controlName = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               SizedBox(height: 20),
               TextField(
+                controller: controlName,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Nombre de usuario',
@@ -52,6 +57,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               SizedBox(height: 20),
               TextField(
+                controller: controlEmail,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Correo electrónico',
@@ -75,6 +81,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               SizedBox(height: 20),
               TextField(
+                controller: controlPassword,
                 obscureText: !_showPassword,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
