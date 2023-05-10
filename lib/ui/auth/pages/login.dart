@@ -52,8 +52,8 @@ class Login extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
               ),
-              child: TextField(
-                decoration: const InputDecoration(
+              child: const TextField(
+                decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Contraseña',
                 ),
@@ -62,41 +62,45 @@ class Login extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-              ),
-              width: 200,
-              height: 50,
-              child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.black,
-                  backgroundColor: Colors.white,
+            Flexible(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
                 ),
-                child: const Text(
-                  'Iniciar sesión',
-                  style: TextStyle(fontSize: 20),
+                width: 200,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    backgroundColor: Colors.white,
+                  ),
+                  child: const Text(
+                    'Iniciar sesión',
+                    style: TextStyle(fontSize: 20),
+                  ),
                 ),
               ),
             ),
             const SizedBox(
               height: 20,
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-              ),
-              width: 200,
-              height: 50,
-              child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.black,
-                  backgroundColor: Colors.white,
+            Flexible(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
                 ),
-                child:
-                    const Text('Registrarse', style: TextStyle(fontSize: 20)),
+                width: 200,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    backgroundColor: Colors.white,
+                  ),
+                  child:
+                      const Text('Registrarse', style: TextStyle(fontSize: 20)),
+                ),
               ),
             ),
           ],
