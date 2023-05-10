@@ -13,8 +13,9 @@ class App extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Bus',
-      theme: ThemeData(primarySwatch: Colors.green),
+      theme: ThemeData(primarySwatch: Colors.green), // Color de la app
       initialRoute: '/ruta',
+
       routes: {
         "/login": (context) => const Login(),
         "/registrar": (context) => RegisterScreen(),
