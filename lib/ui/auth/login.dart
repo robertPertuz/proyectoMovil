@@ -7,7 +7,7 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-      child: Container(
+          child: Container(
         width: double.infinity,
         color: const Color(0xff88d948),
         child: Column(
