@@ -15,7 +15,11 @@ class Login extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/logo.png', width: 200),
+            Image.asset(
+              'assets/images/logo.png',
+              width: 200,
+              height: 200,
+            ),
             const SizedBox(),
             const Text(
               'Iniciar sesión',
@@ -33,8 +37,8 @@ class Login extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
               ),
-              child: TextField(
-                decoration: const InputDecoration(
+              child: const TextField(
+                decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Correo email@example',
                 ),
