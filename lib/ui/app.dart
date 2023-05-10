@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'auth/pages/registrar.dart';
 import 'auth/pages/login.dart';
 
 class App extends StatelessWidget {
@@ -12,9 +12,10 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Bus',
       theme: ThemeData(primarySwatch: Colors.green),
-      initialRoute: '/login',
+      initialRoute: '/registrar',
       routes: {
         "/login": (context) => const Login(),
+        "/registrar": (context) => RegisterScreen(),
       },
     );
   }
