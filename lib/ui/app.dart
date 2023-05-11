@@ -18,7 +18,7 @@ class App extends StatelessWidget {
       initialRoute: '/login',
 
       routes: {
-        "/login": (context) => const Login(),
+        "/login": (context) => Login(),
         "/registrar": (context) => RegisterScreen(),
         "/profile": (context) => const Profile(),
         "/ruta": (context) => BusRouteMap(),
