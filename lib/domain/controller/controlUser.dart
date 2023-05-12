@@ -24,7 +24,7 @@ class ControlUserAuth extends GetxController {
     if (respuesta == null) {
       _mensaje.value = "No Se Completo la Consulta";
     } else if (respuesta == "1" || respuesta == "2") {
-      _mensaje.value = "No Se Completo la Consulta";
+      _mensaje.value = respuesta;
     } else {
       _mensaje.value = "Proceso Realizado Correctamente";
       _usuario.value = respuesta;

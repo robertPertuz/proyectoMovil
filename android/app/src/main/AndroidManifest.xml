@@ -7,9 +7,13 @@
     <application
         android:label="bus_mate"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher"
-        android:label="google_maps_in_flutter"
-        tools:overrideLibrary="io.flutter.plugins.googlemaps">
+        android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+                   android:value="AIzaSyA5Mx4nPIt6VdecxbmYwNNaS395Z_AAMBY" />
+        
+
+
+
        
 
         <activity
@@ -25,9 +29,6 @@
                 android:name="io.flutter.embedding.android.NormalTheme"
                 android:resource="@style/NormalTheme" />
 
-            <meta-data
-                android:name="com.google.android.geo.API_KEY"
-                android:value="AIzaSyAUeXpSztSecYl203BF5n_PigSYDhqxEkQ" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

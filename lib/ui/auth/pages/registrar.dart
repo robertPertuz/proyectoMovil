@@ -132,26 +132,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Flexible(
                 child: ElevatedButton(
                   onPressed: () async {
-                    await controlU.crearUser(
-                        controlEmail.text, controlPassword.text);
-                    if (controlU.userValido != null) {
-                      // Mostrar un mensaje de registro exitoso
-                      Get.snackbar('Registro exitoso',
-                          'El usuario se ha registrado correctamente',
-                          backgroundColor: Colors.green,
-                          colorText: Colors.white,
-                          duration: Duration(seconds: 3));
-
-                      // Redirigir al usuario a la página de inicio
-                      Get.toNamed('/login');
-                    } else {
-                      // Mostrar un mensaje de error de registro
-                      Get.snackbar('Error de registro',
-                          'No se pudo completar el registro',
-                          backgroundColor: Colors.red,
-                          colorText: Colors.white,
-                          duration: Duration(seconds: 3));
-                    }
+                    controlU
+                        .crearUser(controlEmail.text, controlPassword.text)
+                        .then((value) {
+                      if (controlU.userValido == null) {
+                        Get.snackbar("Usuarios", controlU.mensajesUser,
+                            duration: const Duration(seconds: 4),
+                            backgroundColor: Colors.amber);
+                      } else {
+                        Get.snackbar("Usuarios", controlU.mensajesUser,
+                            duration: const Duration(seconds: 4),
+                            backgroundColor: Colors.amber);
+                      }
+                    });
                   },
                   child: Text('Registrarse'),
                   style: ElevatedButton.styleFrom(
