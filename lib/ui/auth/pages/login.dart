@@ -86,13 +86,22 @@ class Login extends StatelessWidget {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () async {
-                    await controlU.ingresarUser(
-                        controlEmail.toString(), controlPassword.toString());
-                    if (controlU.userValido != null) {
-                      Get.toNamed('/profile');
-                    } else {
-                      Get.snackbar('Error', 'Usuario o contraseña incorrectos');
-                    }
+                    controlU
+                        .ingresarUser(
+                            controlEmail.toString(), controlPassword.toString())
+                        .then((value) {
+                      if (controlU.userValido == null) {
+                        Get.snackbar("Usuarios", controlU.mensajesUser,
+                            duration: const Duration(seconds: 4),
+                            backgroundColor: Colors.red);
+                      } else {
+                        Get.snackbar("Usuarios", controlU.mensajesUser,
+                            duration: const Duration(seconds: 4),
+                            backgroundColor: Colors.red);
+                        Get.toNamed("/profile");
+                      }
+                    });
+                    // await Peticioneslogin.ingresarEmail(email
                   },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.black,

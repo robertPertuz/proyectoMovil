@@ -44,7 +44,85 @@ class Profile extends StatelessWidget {
       ),
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Mapa'),
+        title: const Text('Bienvenido a BusMate'),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GridView.count(
+            crossAxisCount: 2,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/rutas');
+                },
+                child: Container(
+                  color: Colors.blue,
+                  child: Center(
+                    child: Text(
+                      'Rutas',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/pagos');
+                },
+                child: Container(
+                  color: Colors.green,
+                  child: Center(
+                    child: Text(
+                      'Pagos',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/historial');
+                },
+                child: Container(
+                  color: Colors.orange,
+                  child: Center(
+                    child: Text(
+                      'Historial',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/sugerencias');
+                },
+                child: Container(
+                  color: Colors.purple,
+                  child: Center(
+                    child: Text(
+                      'Cajón de Sugerencias',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
