@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'auth/pages/aboutScreen.dart';
 import 'auth/pages/pago.dart';
 import 'auth/pages/profileUser.dart';
 import 'auth/pages/registrar.dart';
@@ -15,7 +16,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Bus',
       theme: ThemeData(primarySwatch: Colors.green), // Color de la app
-      initialRoute: '/login',
+      initialRoute: '/profile',
 
       routes: {
         "/login": (context) => Login(),
@@ -23,6 +24,7 @@ class App extends StatelessWidget {
         "/profile": (context) => const Profile(),
         "/ruta": (context) => BusRouteMap(),
         "/pago": (context) => PaymentView(),
+        "/about": (context) => AboutScreen(),
       },
     );
   }

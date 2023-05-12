@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({super.key});
+  const Profile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +19,10 @@ class Profile extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.bus_alert_outlined),
-              title: const Text('Rutas'),
+              leading: const Icon(Icons.info),
+              title: const Text('Acerca de BusMate'),
               onTap: () {
-                Get.toNamed('/ruta');
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.money_sharp),
-              title: const Text('Pagos'),
-              onTap: () {
-                Get.toNamed('/pago');
+                Get.toNamed('/about');
               },
             ),
             ListTile(
@@ -46,82 +39,138 @@ class Profile extends StatelessWidget {
         centerTitle: true,
         title: const Text('Bienvenido a BusMate'),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GridView.count(
-            crossAxisCount: 2,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/rutas');
-                },
-                child: Container(
-                  color: Colors.blue,
-                  child: Center(
-                    child: Text(
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GridView.count(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          children: [
+            GestureDetector(
+              onTap: () {
+                Get.toNamed('/ruta');
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                color: Colors.blue,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.bus_alert_outlined,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
                       'Rutas',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/pagos');
-                },
-                child: Container(
-                  color: Colors.green,
-                  child: Center(
-                    child: Text(
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/pago');
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                color: Colors.green,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.monetization_on,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
                       'Pagos',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/historial');
-                },
-                child: Container(
-                  color: Colors.orange,
-                  child: Center(
-                    child: Text(
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/historial');
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                color: Colors.orange,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.history,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
                       'Historial',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/sugerencias');
-                },
-                child: Container(
-                  color: Colors.purple,
-                  child: Center(
-                    child: Text(
-                      'Cajón de Sugerencias',
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/sugerencias');
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                color: Colors.purple,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.tips_and_updates,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
+                      'Sugerencias',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
