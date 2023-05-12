@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../domain/controller/controlUser.dart';
 
 class Login extends StatelessWidget {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  String _errorMessage = '';
   ControlUserAuth controlU = Get.find();
   TextEditingController controlEmail = TextEditingController();
   TextEditingController controlPassword = TextEditingController();
@@ -87,8 +90,7 @@ class Login extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () async {
                     controlU
-                        .ingresarUser(
-                            controlEmail.toString(), controlPassword.toString())
+                        .ingresarUser(controlEmail.text, controlPassword.text)
                         .then((value) {
                       if (controlU.userValido == null) {
                         Get.snackbar("Usuarios", controlU.mensajesUser,
@@ -97,14 +99,14 @@ class Login extends StatelessWidget {
                       } else {
                         Get.snackbar("Usuarios", controlU.mensajesUser,
                             duration: const Duration(seconds: 4),
-                            backgroundColor: Colors.red);
+                            backgroundColor: Colors.green);
                         Get.toNamed("/profile");
                       }
                     });
                     // await Peticioneslogin.ingresarEmail(email
                   },
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.black,
+                    foregroundColor: Colors.green,
                     backgroundColor: Colors.white,
                   ),
                   child: const Text(
@@ -129,7 +131,7 @@ class Login extends StatelessWidget {
                     Get.toNamed('/registrar');
                   },
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.black,
+                    foregroundColor: Colors.green,
                     backgroundColor: Colors.white,
                   ),
                   child:
@@ -141,7 +143,21 @@ class Login extends StatelessWidget {
               height: 20,
             ),
             TextButton(
-                onPressed: () {},
+                onPressed: () async {
+                  try {
+                    await _auth.sendPasswordResetEmail(
+                        email: controlEmail.text);
+                    Get.snackbar("Recuperar contraseña",
+                        "Se ha enviado un correo electrónico de recuperación a su dirección de correo electrónico.",
+                        duration: const Duration(seconds: 4),
+                        backgroundColor: Colors.green);
+                  } catch (e) {
+                    Get.snackbar("Recuperar contraseña",
+                        "Error al enviar el correo electrónico de recuperación.",
+                        duration: const Duration(seconds: 4),
+                        backgroundColor: Colors.red);
+                  }
+                },
                 child: Text(
                   '¿Olvidaste tu contraseña?',
                   style: TextStyle(color: Colors.white),
