@@ -16,12 +16,12 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Bus',
       theme: ThemeData(primarySwatch: Colors.green), // Color de la app
-      initialRoute: '/profile',
+      initialRoute: '/login',
 
       routes: {
         "/login": (context) => Login(),
         "/registrar": (context) => RegisterScreen(),
-        "/profile": (context) => const Profile(),
+        "/profile": (context) => Profile(),
         "/ruta": (context) => BusRouteMap(),
         "/pago": (context) => PaymentView(),
         "/about": (context) => AboutScreen(),

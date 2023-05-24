@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../domain/controller/controlUser.dart';
+
 class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
+  final ControlUserAuth _authController = Get.find<ControlUserAuth>();
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +30,9 @@ class Profile extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.logout),
               title: const Text('Cerrar sesión'),
-              onTap: () {
-                Get.toNamed('/login');
+              onTap: () async {
+                await _authController.cerrarSesion();
+                Get.offAllNamed('/login');
               },
             ),
           ],

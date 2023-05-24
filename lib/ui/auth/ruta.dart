@@ -20,7 +20,7 @@ class _BusRouteMapState extends State<BusRouteMap> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Maps Sample App'),
+        title: const Text('Encuentra tú BusMate 🚌'),
         backgroundColor: const Color(0xff88d948),
       ),
       body: Column(
@@ -33,7 +33,7 @@ class _BusRouteMapState extends State<BusRouteMap> {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: 'Buscar...',
+                      hintText: 'A donde se dirige?...',
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -65,31 +65,61 @@ class _BusRouteMapState extends State<BusRouteMap> {
           Container(
             height: 100,
             margin: const EdgeInsets.all(10),
-            child: ListView.builder(
+            child: ListView(
               scrollDirection: Axis.horizontal,
-              itemCount: 5, // Cantidad de elementos en la lista
-              itemBuilder: (context, index) {
-                return Container(
+              children: [
+                Container(
                   width: 100,
                   margin: const EdgeInsets.only(right: 10),
                   color: Colors.grey[300],
                   child: Center(
-                    child: Text('Ruta ${index + 1}'),
+                    child: Text('Ruta 1'),
                   ),
-                );
-              },
+                ),
+                Container(
+                  width: 100,
+                  margin: const EdgeInsets.only(right: 10),
+                  color: Colors.grey[300],
+                  child: Center(
+                    child: Text('Ruta 2'),
+                  ),
+                ),
+                Container(
+                  width: 100,
+                  margin: const EdgeInsets.only(right: 10),
+                  color: Colors.grey[300],
+                  child: Center(
+                    child: Text('Ruta 3'),
+                  ),
+                ),
+                Container(
+                  width: 100,
+                  margin: const EdgeInsets.only(right: 10),
+                  color: Colors.grey[300],
+                  child: Center(
+                    child: Text('Ruta 4'),
+                  ),
+                ),
+                Container(
+                  width: 100,
+                  margin: const EdgeInsets.only(right: 10),
+                  color: Colors.grey[300],
+                  child: Center(
+                    child: Text('Ruta 5'),
+                  ),
+                ),
+                Container(
+                  width: 100,
+                  margin: const EdgeInsets.only(right: 10),
+                  color: Colors.grey[300],
+                  child: Center(
+                    child: Text('Ruta 6'),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
-      ),
-      floatingActionButton: Container(
-        margin: const EdgeInsets.all(10),
-        child: FloatingActionButton(
-          onPressed: () {
-            // Lógica del botón de ubicación
-          },
-          child: Icon(Icons.my_location),
-        ),
       ),
     );
   }

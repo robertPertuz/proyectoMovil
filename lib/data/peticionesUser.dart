@@ -38,4 +38,8 @@ class Peticioneslogin {
       }
     }
   }
+  static Future<void> cerrarSesion() async {
+  await auth.signOut();
+}
+
 }

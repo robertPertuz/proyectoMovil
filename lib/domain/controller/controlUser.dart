@@ -23,12 +23,20 @@ class ControlUserAuth extends GetxController {
   Future<void> controlUser(dynamic respuesta) async {
     if (respuesta == null) {
       _mensaje.value = "No Se Completo la Consulta";
-    } else if (respuesta == "1" || respuesta == "2") {
-      _mensaje.value = respuesta;
+    } else if (respuesta == "1") {
+      _mensaje.value = "Correo no encontrado'";
+    } else if (respuesta == "2") {
+      _mensaje.value = "Password incorrecto";
     } else {
       _mensaje.value = "Proceso Realizado Correctamente";
       _usuario.value = respuesta;
     }
+  }
+    Future<void> cerrarSesion() async {
+    await FirebaseAuth.instance.signOut();
+    _response.value = null;
+    _mensaje.value = 'Sesión cerrada correctamente';
+    _usuario.value = null;
   }
 
   dynamic get estadoUser => _response.value;
