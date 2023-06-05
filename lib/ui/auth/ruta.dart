@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 
 class BusRouteMap extends StatefulWidget {
   const BusRouteMap({Key? key}) : super(key: key);
@@ -11,9 +12,51 @@ class BusRouteMap extends StatefulWidget {
 class _BusRouteMapState extends State<BusRouteMap> {
   late GoogleMapController mapController;
   final LatLng _center = const LatLng(45.521563, -122.677433);
+  Position? _currentPosition;
+
+  @override
+  void initState() {
+    super.initState();
+    _getCurrentLocation();
+  }
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
+  }
+
+  Future<void> _getCurrentLocation() async {
+    try {
+      final position = await _determinePosition();
+      setState(() {
+        _currentPosition = position;
+      });
+    } catch (e) {
+      print('Error getting current location: $e');
+    }
+  }
+
+  Future<Position> _determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      throw 'Location services are disabled.';
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        throw 'Location permissions are denied';
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      throw 'Location permissions are permanently denied.';
+    }
+
+    return await Geolocator.getCurrentPosition();
   }
 
   @override
@@ -55,10 +98,25 @@ class _BusRouteMapState extends State<BusRouteMap> {
                 myLocationEnabled: true,
                 myLocationButtonEnabled: true,
                 onMapCreated: _onMapCreated,
+                zoomControlsEnabled: true,
                 initialCameraPosition: CameraPosition(
                   target: _center,
                   zoom: 11.0,
                 ),
+                markers: _currentPosition != null
+                    ? {
+                        Marker(
+                          markerId: MarkerId('currentPosition'),
+                          position: LatLng(
+                            _currentPosition!.latitude,
+                            _currentPosition!.longitude,
+                          ),
+                          infoWindow: InfoWindow(
+                            title: 'Current Position',
+                          ),
+                        ),
+                      }
+                    : {},
               ),
             ),
           ),
