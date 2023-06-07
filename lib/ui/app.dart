@@ -8,6 +8,9 @@ import 'auth/pages/profileUser.dart';
 import 'auth/pages/registrar.dart';
 import 'auth/pages/login.dart';
 import 'auth/pages/screenGestionBuses.dart';
+import 'auth/pages/screenRegistrarBus.dart';
+import 'auth/pages/screenRegistrarConductor.dart';
+import 'auth/pages/screenRegistrarRuta.dart';
 import 'auth/pages/screengestionRutas.dart';
 import 'auth/ruta.dart';
 
@@ -33,6 +36,9 @@ class App extends StatelessWidget {
         "/GestionBuses": (context) => GestionBuses(),
         "/GestionConductor": (context) => GestionConductores(),
         "/GestionRutas": (context) => GestionRutas(),
+        "/RegistroRuta": (context) => RegistrarRuta(),
+        "/RegistroConductor": (context) => RegistroConductor(),
+        "/RegistroBus": (context) => RegistrarBus(),
       },
     );
   }

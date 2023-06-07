@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class GestionConductores extends StatelessWidget {
   @override
@@ -10,7 +11,7 @@ class GestionConductores extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
-              // Lógica para agregar un bus
+              Get.toNamed('/RegistroConductor');
               // ...
             },
           ),
