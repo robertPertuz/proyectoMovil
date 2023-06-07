@@ -1,9 +1,37 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Peticioneslogin {
   static final FirebaseAuth auth = FirebaseAuth.instance;
+  static final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-//Registro Usando Correo Electronico y Contraseña
+//Registro Usando Correo Electronico y nombre en BD
+
+  static Future<void> guardarUsuario(String nombre, String correo) async {
+    try {
+      await firestore.collection('usuarios').add({
+        'nombre': nombre,
+        'correo': correo,
+      });
+      print('Datos guardados correctamente');
+    } catch (e) {
+      print('Error al guardar los datos: $e');
+    }
+  }
+
+  Future<List<Map<String, dynamic>>> obtenerUsuarios() async {
+    try {
+      QuerySnapshot snapshot = await firestore.collection('usuarios').get();
+      List<Map<String, dynamic>> usuarios = snapshot.docs
+          .map((doc) => doc.data() as Map<String, dynamic>)
+          .toList();
+      return usuarios;
+    } catch (e) {
+      print('Error al obtener los usuarios: $e');
+      return [];
+    }
+  }
+
   static Future<dynamic> crearRegistroEmail(dynamic email, dynamic pass) async {
     try {
       UserCredential usuario = await auth.createUserWithEmailAndPassword(
@@ -38,8 +66,8 @@ class Peticioneslogin {
       }
     }
   }
-  static Future<void> cerrarSesion() async {
-  await auth.signOut();
-}
 
+  static Future<void> cerrarSesion() async {
+    await auth.signOut();
+  }
 }

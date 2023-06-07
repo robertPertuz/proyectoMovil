@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'auth/pages/aboutScreen.dart';
+import 'auth/pages/pageAdmin.dart';
 import 'auth/pages/pago.dart';
 import 'auth/pages/profileUser.dart';
 import 'auth/pages/registrar.dart';
@@ -25,6 +26,7 @@ class App extends StatelessWidget {
         "/ruta": (context) => BusRouteMap(),
         "/pago": (context) => PaymentView(),
         "/about": (context) => AboutScreen(),
+        "/admin": (context) => AdminScreen(),
       },
     );
   }

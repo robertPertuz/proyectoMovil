@@ -11,7 +11,7 @@ class BusRouteMap extends StatefulWidget {
 
 class _BusRouteMapState extends State<BusRouteMap> {
   late GoogleMapController mapController;
-  final LatLng _center = const LatLng(45.521563, -122.677433);
+  final LatLng _center = const LatLng(10.46314, -73.25322);
   Position? _currentPosition;
 
   @override
