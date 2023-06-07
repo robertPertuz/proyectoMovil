@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AdminScreen extends StatelessWidget {
   @override
@@ -15,8 +16,7 @@ class AdminScreen extends StatelessWidget {
             Expanded(
               child: GestureDetector(
                 onTap: () {
-                  // Funcionalidad para gestionar buses
-                  // Aquí puedes agregar la navegación o la lógica que desees
+                  Get.toNamed('/GestionBuses');
                 },
                 child: Container(
                   color: Colors.blue,
@@ -45,8 +45,7 @@ class AdminScreen extends StatelessWidget {
             Expanded(
               child: GestureDetector(
                 onTap: () {
-                  // Funcionalidad para gestionar conductores
-                  // Aquí puedes agregar la navegación o la lógica que desees
+                  Get.toNamed('/GestionConductor');
                 },
                 child: Container(
                   color: Colors.green,
@@ -75,8 +74,7 @@ class AdminScreen extends StatelessWidget {
             Expanded(
               child: GestureDetector(
                 onTap: () {
-                  // Funcionalidad para gestionar rutas
-                  // Aquí puedes agregar la navegación o la lógica que desees
+                  Get.toNamed('/GestionRutas');
                 },
                 child: Container(
                   color: Colors.orange,
