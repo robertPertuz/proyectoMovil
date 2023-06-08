@@ -5,30 +5,31 @@ import 'package:get/get.dart';
 import '../../../domain/controller/controlUser.dart';
 
 class Profile extends StatelessWidget {
-  final ControlUserAuth _authController = Get.find<ControlUserAuth>();
   final TextEditingController _codeController = TextEditingController();
   final String correctCode = '888777999';
 
   @override
   Widget build(BuildContext context) {
+    final controlU = Get.find<ControlUserAuth>();
+
     return Scaffold(
       drawer: Drawer(
         child: Column(
           children: [
-            UserAccountsDrawerHeader(
-              accountName: Obx(() {
-                final user = _authController.loggedInUser.value;
-                return user != null ? Text(user.nombre) : const Text('');
-              }),
-              accountEmail: Obx(() {
-                final user = _authController.loggedInUser.value;
-                return user != null ? Text(user.email) : const Text('');
-              }),
-              currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Text('A'),
-              ),
-            ),
+            Obx(() {
+              final user = controlU.loggedInUser.value;
+              return UserAccountsDrawerHeader(
+                accountName: Text(user?.nombre ?? ''),
+                accountEmail: Text(user?.email ?? ''),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: Text(
+                    user?.nombre?.substring(0, 1) ?? '',
+                    style: const TextStyle(fontSize: 40.0),
+                  ),
+                ),
+              );
+            }),
             ListTile(
               leading: const Icon(Icons.info),
               title: const Text('Acerca de BusMate'),
@@ -40,17 +41,19 @@ class Profile extends StatelessWidget {
               leading: const Icon(Icons.logout),
               title: const Text('Cerrar sesión'),
               onTap: () async {
-                await _authController.cerrarSesion();
+                await controlU.cerrarSesion();
+                _resetDrawerValues(); // Limpiar valores del Drawer
                 Get.offAllNamed('/login');
               },
             ),
             ListTile(
-                leading: const Icon(Icons.admin_panel_settings),
-                title: const Text('Modo Administrador'),
-                subtitle: const Text('Requiere codigo de acceso'),
-                onTap: () {
-                  _showAccessCodeDialog(context);
-                })
+              leading: const Icon(Icons.admin_panel_settings),
+              title: const Text('Modo Administrador'),
+              subtitle: const Text('Requiere código de acceso'),
+              onTap: () {
+                _showAccessCodeDialog(context);
+              },
+            ),
           ],
         ),
       ),
@@ -189,6 +192,37 @@ class Profile extends StatelessWidget {
                 ),
               ),
             ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/saldo');
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                color: Colors.red,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.account_balance_wallet,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
+                      'Saldo',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -222,6 +256,7 @@ class Profile extends StatelessWidget {
                 if (enteredCode == correctCode) {
                   Navigator.of(context).pop(); // Cerrar el cuadro de diálogo
                   Get.toNamed('/admin');
+                  _resetDrawerValues(); // Limpiar valores del Drawer
                   _codeController
                       .clear(); // Navegar a la pantalla del modo administrador
                 } else {
@@ -251,5 +286,9 @@ class Profile extends StatelessWidget {
         );
       },
     );
+  }
+
+  void _resetDrawerValues() {
+    _codeController.clear();
   }
 }

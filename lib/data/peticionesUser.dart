@@ -5,13 +5,15 @@ class Peticioneslogin {
   static final FirebaseAuth auth = FirebaseAuth.instance;
   static final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-//Registro Usando Correo Electronico y nombre en BD
+  //Registro Usando Correo Electronico y nombre en BD
 
-  static Future<void> guardarUsuario(String nombre, String correo) async {
+  static Future<void> guardarUsuario(
+      String nombre, String correo, double d) async {
     try {
       await firestore.collection('usuarios').add({
         'nombre': nombre,
         'correo': correo,
+        'saldo': 0.0,
       });
       print('Datos guardados correctamente');
     } catch (e) {
@@ -19,7 +21,7 @@ class Peticioneslogin {
     }
   }
 
-  Future<List<Map<String, dynamic>>> obtenerUsuarios() async {
+  static Future<List<Map<String, dynamic>>> obtenerUsuarios() async {
     try {
       QuerySnapshot snapshot = await firestore.collection('usuarios').get();
       List<Map<String, dynamic>> usuarios = snapshot.docs
@@ -64,6 +66,72 @@ class Peticioneslogin {
         print('Password incorrecto');
         return '2';
       }
+    }
+  }
+
+  static Future<String> recargarSaldo(double cantidad) async {
+    try {
+      User? currentUser = auth.currentUser;
+      if (currentUser != null) {
+        String correo = currentUser.email!;
+        QuerySnapshot snapshot = await firestore
+            .collection('usuarios')
+            .where('correo', isEqualTo: correo)
+            .get();
+        if (snapshot.docs.isNotEmpty) {
+          String documentId = snapshot.docs.first.id;
+          Map<String, dynamic>? userData =
+              snapshot.docs.first.data() as Map<String, dynamic>?;
+          double saldoActual = userData?['saldo'] ?? 0.0;
+          double nuevoSaldo = saldoActual + cantidad;
+          await firestore
+              .collection('usuarios')
+              .doc(documentId)
+              .update({'saldo': nuevoSaldo});
+          return ('Recarga de saldo realizada correctamente');
+        } else {
+          return ('No se encontró ningún usuario con el correo proporcionado');
+        }
+      } else {
+        return ('No se ha encontrado ningún usuario autenticado');
+      }
+    } catch (e) {
+      return ('Error al recargar el saldo: $e');
+    }
+  }
+
+  static Future<void> pagar() async {
+    try {
+      User? currentUser = auth.currentUser;
+      if (currentUser != null) {
+        String correo = currentUser.email!;
+        QuerySnapshot snapshot = await firestore
+            .collection('usuarios')
+            .where('correo', isEqualTo: correo)
+            .get();
+        if (snapshot.docs.isNotEmpty) {
+          String documentId = snapshot.docs.first.id;
+          Map<String, dynamic>? userData =
+              snapshot.docs.first.data() as Map<String, dynamic>?;
+          double saldoActual = userData?['saldo'] ?? 0.0;
+          if (saldoActual >= 2000) {
+            double nuevoSaldo = saldoActual - 2000;
+            await firestore
+                .collection('usuarios')
+                .doc(documentId)
+                .update({'saldo': nuevoSaldo});
+            print('Pago realizado correctamente');
+          } else {
+            print('Saldo insuficiente');
+          }
+        } else {
+          print('No se encontró ningún usuario con el correo proporcionado');
+        }
+      } else {
+        print('No se ha encontrado ningún usuario autenticado');
+      }
+    } catch (e) {
+      print('Error al realizar el pago: $e');
     }
   }
 

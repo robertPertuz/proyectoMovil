@@ -10,9 +10,8 @@ class _PaymentViewState extends State<PaymentView> {
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   late QRViewController controller;
   String _qrText = '';
-
-  // TODO: Agregar lógica para obtener saldo disponible del usuario
   double _availableBalance = 100.0;
+  int _ticketCount = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +40,49 @@ class _PaymentViewState extends State<PaymentView> {
             flex: 1,
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text(
-                'Saldo disponible: \$$_availableBalance',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Column(
+                children: [
+                  Text(
+                    'Saldo disponible: \$$_availableBalance',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    'Cantidad de pasajes: $_ticketCount',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                    ),
+                  ),
+                ],
               ),
             ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    if (_ticketCount > 1) {
+                      _ticketCount--;
+                    }
+                  });
+                },
+                child: Icon(Icons.remove),
+              ),
+              SizedBox(width: 10.0),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    _ticketCount++;
+                  });
+                },
+                child: Icon(Icons.add),
+              ),
+            ],
           ),
         ],
       ),

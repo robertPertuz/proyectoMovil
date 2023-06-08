@@ -2,6 +2,7 @@ import 'package:com.proyecto.busmate/ui/auth/vistaAdmin/screenGestionConductor.d
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'auth/pages/aboutScreen.dart';
+import 'auth/pages/screenSaldo.dart';
 import 'auth/vistaAdmin/pageAdmin.dart';
 import 'auth/pages/pago.dart';
 import 'auth/pages/profileUser.dart';
@@ -23,7 +24,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Bus',
       theme: ThemeData(primarySwatch: Colors.green), // Color de la app
-      initialRoute: '/profile',
+      initialRoute: '/login',
 
       routes: {
         "/login": (context) => Login(),
@@ -39,6 +40,7 @@ class App extends StatelessWidget {
         "/RegistroRuta": (context) => RegistrarRuta(),
         "/RegistroConductor": (context) => RegistroConductor(),
         "/RegistroBus": (context) => RegistrarBus(),
+        "/saldo": (context) => Saldo(),
       },
     );
   }

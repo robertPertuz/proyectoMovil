@@ -1,7 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:get/get.dart';
 import 'package:com.proyecto.busmate/domain/models/user.dart';
 import '../../data/peticionesUser.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 
 class ControlUserAuth extends GetxController {
   final _response = Rxn();
@@ -10,15 +10,21 @@ class ControlUserAuth extends GetxController {
       Rxn<firebase_auth.UserCredential>();
   Rx<firebase_auth.User?> currentUser = Rx<firebase_auth.User?>(null);
   final Rx<User?> loggedInUser = Rx<User?>(null);
+  RxDouble saldo = 0.0.obs;
 
   @override
   void onInit() {
     super.onInit();
-
+    _obtenerDatosUsuario();
   }
 
-  Future<void> guardarUsuario(String nombre, String correo) async {
-    await Peticioneslogin.guardarUsuario(nombre, correo);
+  Future<String> recargarSaldo(double cantidad) {
+    return Peticioneslogin.recargarSaldo(cantidad);
+  }
+
+  Future<void> guardarUsuario(
+      String nombre, String correo, double saldo) async {
+    await Peticioneslogin.guardarUsuario(nombre, correo, saldo);
   }
 
   Future<void> crearUser(String email, String pass) async {
@@ -53,8 +59,41 @@ class ControlUserAuth extends GetxController {
     _usuario.value = null;
   }
 
+  // Método para obtener los datos del usuario actualmente autenticado desde Firestore
+  Future<void> _obtenerDatosUsuario() async {
+    final currentUser = firebase_auth.FirebaseAuth.instance.currentUser;
+    if (currentUser != null) {
+      final userEmail = currentUser.email;
+      final usuarios = await Peticioneslogin.obtenerUsuarios();
+      final usuarioActual = usuarios.firstWhere(
+        (user) => user['correo'] == userEmail,
+        orElse: () => {},
+      );
+      if (usuarioActual != null) {
+        final nombre = usuarioActual['nombre'];
+        final correo = usuarioActual['correo'];
+        final saldo = usuarioActual['saldo'];
+        final password = ""; // Recupera la contraseña desde la fuente de datos
+
+        loggedInUser.value = User(
+          nombre: nombre,
+          email: correo,
+          password: password,
+          saldo: saldo,
+        );
+        updateSaldo(); // Actualiza el saldo al obtener los datos del usuario
+      }
+    }
+  }
+
+  void updateSaldo() {
+    final loggedInUserValue = loggedInUser.value;
+    if (loggedInUserValue != null) {
+      saldo.value = loggedInUserValue.saldo ?? 0.0;
+    }
+  }
+
   dynamic get estadoUser => _response.value;
   String get mensajesUser => _mensaje.value;
   firebase_auth.UserCredential? get userValido => _usuario.value;
-
 }

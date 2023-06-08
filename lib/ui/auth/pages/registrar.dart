@@ -109,7 +109,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     enabledBorder: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: Colors.white.withOpacity(0.5)),
-                          
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
@@ -136,7 +135,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     await controlU.crearUser(
                         controlEmail.text, controlPassword.text);
                     await controlU.guardarUsuario(
-                        controlName.text, controlEmail.text);
+                        controlName.text, controlEmail.text, 0);
                     if (controlU.userValido != null) {
                       // Mostrar un mensaje de registro exitoso
                       Get.snackbar('Registro exitoso',
