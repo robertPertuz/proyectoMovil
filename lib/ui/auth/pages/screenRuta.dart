@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:com.proyecto.busmate/domain/controller/gestionKML.dart';
 
 class BusRouteMap extends StatefulWidget {
   const BusRouteMap({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class _BusRouteMapState extends State<BusRouteMap> {
   late GoogleMapController mapController;
   final LatLng _center = const LatLng(10.46314, -73.25322);
   Position? _currentPosition;
+  List<LatLng> _routeCoordinates = [];
 
   @override
   void initState() {
@@ -59,6 +61,18 @@ class _BusRouteMapState extends State<BusRouteMap> {
     return await Geolocator.getCurrentPosition();
   }
 
+  Future<void> _loadRoute() async {
+    var kmlPath = 'assets/Ruta100.kml';
+    try {
+      final routeCoordinates = await KMLParser.getRouteCoordinates(kmlPath);
+      setState(() {
+        _routeCoordinates = routeCoordinates;
+      });
+    } catch (e) {
+      print('Error loading route: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,6 +109,14 @@ class _BusRouteMapState extends State<BusRouteMap> {
             child: Container(
               margin: const EdgeInsets.all(10),
               child: GoogleMap(
+                polylines: {
+                  Polyline(
+                    polylineId: PolylineId('ruta'),
+                    color: Colors.blue,
+                    width: 2,
+                    points: _routeCoordinates,
+                  ),
+                },
                 myLocationEnabled: true,
                 myLocationButtonEnabled: true,
                 onMapCreated: _onMapCreated,
@@ -126,54 +148,20 @@ class _BusRouteMapState extends State<BusRouteMap> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                Container(
-                  width: 100,
-                  margin: const EdgeInsets.only(right: 10),
-                  color: Colors.grey[300],
-                  child: Center(
-                    child: Text('Ruta 1'),
+                GestureDetector(
+                  onTap: () {
+                    _loadRoute();
+                  },
+                  child: Container(
+                    width: 100,
+                    margin: const EdgeInsets.only(right: 10),
+                    color: Colors.grey[300],
+                    child: Center(
+                      child: Text('Ruta 1'),
+                    ),
                   ),
                 ),
-                Container(
-                  width: 100,
-                  margin: const EdgeInsets.only(right: 10),
-                  color: Colors.grey[300],
-                  child: Center(
-                    child: Text('Ruta 2'),
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  margin: const EdgeInsets.only(right: 10),
-                  color: Colors.grey[300],
-                  child: Center(
-                    child: Text('Ruta 3'),
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  margin: const EdgeInsets.only(right: 10),
-                  color: Colors.grey[300],
-                  child: Center(
-                    child: Text('Ruta 4'),
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  margin: const EdgeInsets.only(right: 10),
-                  color: Colors.grey[300],
-                  child: Center(
-                    child: Text('Ruta 5'),
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  margin: const EdgeInsets.only(right: 10),
-                  color: Colors.grey[300],
-                  child: Center(
-                    child: Text('Ruta 6'),
-                  ),
-                ),
+                // Otros contenedores de ruta
               ],
             ),
           ),

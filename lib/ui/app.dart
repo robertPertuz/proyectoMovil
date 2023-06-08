@@ -1,18 +1,18 @@
-import 'package:com.proyecto.busmate/ui/auth/pages/screenGestionConductor.dart';
+import 'package:com.proyecto.busmate/ui/auth/vistaAdmin/screenGestionConductor.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'auth/pages/aboutScreen.dart';
-import 'auth/pages/pageAdmin.dart';
+import 'auth/vistaAdmin/pageAdmin.dart';
 import 'auth/pages/pago.dart';
 import 'auth/pages/profileUser.dart';
 import 'auth/pages/registrar.dart';
 import 'auth/pages/login.dart';
-import 'auth/pages/screenGestionBuses.dart';
-import 'auth/pages/screenRegistrarBus.dart';
-import 'auth/pages/screenRegistrarConductor.dart';
-import 'auth/pages/screenRegistrarRuta.dart';
-import 'auth/pages/screengestionRutas.dart';
-import 'auth/ruta.dart';
+import 'auth/vistaAdmin/screenRegistrarConductor.dart';
+import 'auth/vistaAdmin/screenGestionBuses.dart';
+import 'auth/vistaAdmin/screenRegistrarBus.dart';
+import 'auth/vistaAdmin/screenRegistrarRuta.dart';
+import 'auth/vistaAdmin/screengestionRutas.dart';
+import 'auth/pages/screenRuta.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -23,7 +23,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Bus',
       theme: ThemeData(primarySwatch: Colors.green), // Color de la app
-      initialRoute: '/login',
+      initialRoute: '/profile',
 
       routes: {
         "/login": (context) => Login(),
