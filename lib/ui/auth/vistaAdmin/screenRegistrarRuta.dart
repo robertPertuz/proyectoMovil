@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:com.proyecto.busmate/domain/controller/controlRuta.dart';
 
 class RegistrarRuta extends StatefulWidget {
   @override
-  _RouteRegistrationScreenState createState() =>
-      _RouteRegistrationScreenState();
+  _RegistrarRutaState createState() => _RegistrarRutaState();
 }
 
-class _RouteRegistrationScreenState extends State<RegistrarRuta> {
+class _RegistrarRutaState extends State<RegistrarRuta> {
   List<String> neighborhoods = [];
   TextEditingController neighborhoodController = TextEditingController();
+  TextEditingController TextNombre = TextEditingController();
+  ControladorRuta controlr = ControladorRuta();
 
   void addNeighborhood() {
     String newNeighborhood = neighborhoodController.text.trim();
@@ -20,9 +23,38 @@ class _RouteRegistrationScreenState extends State<RegistrarRuta> {
     }
   }
 
-  void saveRoute() {
-    // Lógica para guardar la ruta con los barrios registrados
-    // ...
+  void removeNeighborhood(int index) {
+    setState(() {
+      neighborhoods.removeAt(index);
+    });
+  }
+
+  Future<void> saveRoute() async {
+    if (TextNombre.text.isNotEmpty && neighborhoods.isNotEmpty) {
+      bool success = await controlr.guardarRuta(TextNombre.text, neighborhoods);
+      if (success) {
+        Get.snackbar(
+          'Registro exitoso',
+          'La ruta se ha guardado correctamente',
+          backgroundColor: Colors.green,
+          colorText: Colors.white,
+        );
+      } else {
+        Get.snackbar(
+          'Registro fallido',
+          'La ruta no se ha guardado correctamente',
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+        );
+      }
+    } else {
+      Get.snackbar(
+        'Error',
+        'Debe ingresar un nombre de ruta y al menos un barrio',
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+      );
+    }
   }
 
   @override
@@ -45,6 +77,7 @@ class _RouteRegistrationScreenState extends State<RegistrarRuta> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextField(
+              controller: TextNombre,
               decoration: InputDecoration(
                 labelText: 'Nombre de la Ruta',
               ),
@@ -77,8 +110,24 @@ class _RouteRegistrationScreenState extends State<RegistrarRuta> {
               child: ListView.builder(
                 itemCount: neighborhoods.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(neighborhoods[index]),
+                  return Dismissible(
+                    key: Key(neighborhoods[index]),
+                    direction: DismissDirection.startToEnd,
+                    onDismissed: (direction) {
+                      removeNeighborhood(index);
+                    },
+                    background: Container(
+                      color: Colors.red,
+                      alignment: Alignment.centerLeft,
+                      padding: EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Icon(
+                        Icons.delete,
+                        color: Colors.white,
+                      ),
+                    ),
+                    child: ListTile(
+                      title: Text(neighborhoods[index]),
+                    ),
                   );
                 },
               ),
