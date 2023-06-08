@@ -23,7 +23,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Bus',
       theme: ThemeData(primarySwatch: Colors.green), // Color de la app
-      initialRoute: '/profile',
+      initialRoute: '/login',
 
       routes: {
         "/login": (context) => Login(),

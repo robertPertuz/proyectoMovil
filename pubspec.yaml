@@ -41,6 +41,7 @@ dependencies:
   cloud_firestore: ^4.5.2
   permission_handler: ^10.2.0
   geolocator: ^9.0.2
+  logger: ^1.4.0
 
 
 dev_dependencies:
@@ -73,6 +74,7 @@ flutter:
   assets:
     - assets/images/logo.png
     - assets/Ruta100.kml
+    - assets/RutaEjemplo.kml
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

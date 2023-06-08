@@ -15,6 +15,9 @@ class _BusRouteMapState extends State<BusRouteMap> {
   final LatLng _center = const LatLng(10.46314, -73.25322);
   Position? _currentPosition;
   List<LatLng> _routeCoordinates = [];
+  List<LatLng> _secondRouteCoordinates = [];
+  bool _isSecondRouteSelected = false;
+  bool _1RouteSelected = false;
 
   @override
   void initState() {
@@ -62,14 +65,39 @@ class _BusRouteMapState extends State<BusRouteMap> {
   }
 
   Future<void> _loadRoute() async {
-    var kmlPath = 'assets/Ruta100.kml';
+    setState(() {
+      _routeCoordinates.clear(); // Borra las coordenadas de la primera ruta
+      _secondRouteCoordinates
+          .clear(); // Borra las coordenadas de la segunda ruta
+      _isSecondRouteSelected =
+          false; // Desmarca la selección de la segunda ruta
+    });
+
     try {
-      final routeCoordinates = await KMLParser.getRouteCoordinates(kmlPath);
+      final routeCoordinates =
+          await KMLParser.getRouteCoordinates('assets/Ruta100.kml');
       setState(() {
         _routeCoordinates = routeCoordinates;
+        _1RouteSelected = true;
       });
     } catch (e) {
       print('Error loading route: $e');
+    }
+  }
+
+  Future<void> _loadSecondRoute() async {
+    setState(() {
+      _1RouteSelected = false;
+    });
+    try {
+      final secondRouteCoordinates =
+          await KMLParser.getRouteCoordinates('assets/RutaEjemplo.kml');
+      setState(() {
+        _secondRouteCoordinates = secondRouteCoordinates;
+        _isSecondRouteSelected = true;
+      });
+    } catch (e) {
+      print('Error loading second route: $e');
     }
   }
 
@@ -112,10 +140,20 @@ class _BusRouteMapState extends State<BusRouteMap> {
                 polylines: {
                   Polyline(
                     polylineId: PolylineId('ruta'),
-                    color: Colors.blue,
-                    width: 2,
+                    color: _isSecondRouteSelected
+                        ? Colors.transparent
+                        : Colors
+                            .green, // Oculta la primera ruta si la segunda está seleccionada
+                    width: 4,
                     points: _routeCoordinates,
                   ),
+                  if (_isSecondRouteSelected) // Solo muestra la segunda ruta si está seleccionada
+                    Polyline(
+                      polylineId: PolylineId('secondRoute'),
+                      color: Colors.green,
+                      width: 4,
+                      points: _secondRouteCoordinates,
+                    ),
                 },
                 myLocationEnabled: true,
                 myLocationButtonEnabled: true,
@@ -155,13 +193,28 @@ class _BusRouteMapState extends State<BusRouteMap> {
                   child: Container(
                     width: 100,
                     margin: const EdgeInsets.only(right: 10),
-                    color: Colors.grey[300],
+                    color: _1RouteSelected ? Colors.green : Colors.grey[300],
                     child: Center(
-                      child: Text('Ruta 1'),
+                      child: Text('Ruta 100'),
                     ),
                   ),
                 ),
-                // Otros contenedores de ruta
+                GestureDetector(
+                  onTap: () {
+                    _loadSecondRoute();
+                  },
+                  child: Container(
+                    width: 100,
+                    margin: const EdgeInsets.only(right: 10),
+                    color: _isSecondRouteSelected
+                        ? Colors.green
+                        : Colors.grey[
+                            300], // Cambia el color del contenedor según si la segunda ruta está seleccionada
+                    child: Center(
+                      child: Text('Ruta 2'),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
