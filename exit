@@ -1,0 +1,346 @@
+[33mcommit d9b847eb6068a4e10f3f58a1f4bc91bd20bcb9b9[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Fri May 12 04:56:21 2023 -0500
+
+    version 0.8
+
+[33mcommit c53450b4c85c95a38fe0fe9433c5f3f201f48d50[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Fri May 12 04:35:21 2023 -0500
+
+    primera entrega version 0.077
+
+[33mcommit 015bb18a23544feb4075c63169a2c3b12317ddeb[m
+Merge: 6d32761 35a8b85
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Fri May 12 03:01:37 2023 -0500
+
+    Merge branch 'main' of https://github.com/robertPertuz/proyectoMovil
+
+[33mcommit 6d32761bf16caec2fa6a79a17de4ba9edc562900[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Fri May 12 03:01:24 2023 -0500
+
+    profile
+
+[33mcommit 35a8b8533f86941cd32563b2552a9924ffb5e651[m
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Fri May 12 02:33:52 2023 -0500
+
+    mapa
+
+[33mcommit 8e12a1a236a42da913cc5d8f7495449d990a956a[m
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Fri May 12 02:33:15 2023 -0500
+
+    mapa
+
+[33mcommit d2d211f54431ee3a045d72328a4e2cb1f1a82371[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Fri May 12 02:17:09 2023 -0500
+
+    login completo
+
+[33mcommit 93a6a5f57d4626985adaaf1043f405a1b5dc0743[m
+Merge: e6ebaa4 3cb0787
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Fri May 12 01:42:42 2023 -0500
+
+    Merge branch 'main' of https://github.com/robertPertuz/proyectoMovil
+
+[33mcommit e6ebaa44cd7966c55cf9f4bea525d5edc7dc2f5f[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Fri May 12 01:42:32 2023 -0500
+
+    profile
+
+[33mcommit 3cb07872666592ec2c99dbf8f936e9739729d32f[m
+Merge: 6d6b242 670b980
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Fri May 12 01:19:50 2023 -0500
+
+    Merge branch 'main' of https://github.com/robertPertuz/proyectoMovil
+
+[33mcommit 670b9805bc1cd2f4ca48be15a6404597056461b7[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Thu May 11 17:37:57 2023 -0500
+
+    login 2.0
+
+[33mcommit fd0c48ae9d82aec345a4d817be07c18f9352c1b3[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Thu May 11 16:42:52 2023 -0500
+
+    registro completo
+
+[33mcommit 69453c92973e8e83bd4691cdc0fe18dcf405c866[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Thu May 11 16:27:27 2023 -0500
+
+    registro
+
+[33mcommit 6d6b242ca8af2d05eb7c5c98a5bbb81d04d4f665[m
+Merge: ffa6cfa 96d2b1a
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Wed May 10 15:46:03 2023 -0500
+
+    Merge branches 'main' and 'main' of https://github.com/robertPertuz/proyectoMovil
+
+[33mcommit ffa6cfa7ba59f42a5331ddbf98148c9d3fce9861[m
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Wed May 10 15:40:07 2023 -0500
+
+    ComitPreerrores
+
+[33mcommit 96d2b1a8d647436d2e2565ef14cab62c62f0fd70[m
+Merge: f67c867 e5bfea3
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 15:38:52 2023 -0500
+
+    Merge branch 'main' of https://github.com/robertPertuz/proyectoMovil
+
+[33mcommit f67c867c467922fa4c7129545c08f17da6f783c3[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 15:37:43 2023 -0500
+
+    primeraParteCompleta
+
+[33mcommit e5bfea3bdd19c82b24660c530ac1573278512506[m
+Merge: 1341693 13b6805
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Wed May 10 13:03:49 2023 -0500
+
+    Merge branch 'main' of https://github.com/robertPertuz/proyectoMovil
+
+[33mcommit 13416939ba71572523fe30f98df9687650bc08ef[m
+Merge: 98b06c2 a8cf1d6
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Wed May 10 12:58:09 2023 -0500
+
+    Merge branch 'main' of https://github.com/robertPertuz/proyectoMovil
+
+[33mcommit 13b6805c019be016d2e27e459086b772df6d3441[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 12:52:42 2023 -0500
+
+    commit
+
+[33mcommit 98b06c27f21e74df2de1848cd09afcbea83a4150[m
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Wed May 10 12:51:35 2023 -0500
+
+    icono y cambio color
+
+[33mcommit a8cf1d6c72a7e23a2d4c659b1c16720b2ad6dbac[m
+Merge: 2ed4300 ff47a38
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 12:18:57 2023 -0500
+
+    Merge branch 'main' of https://github.com/robertPertuz/proyectoMovil
+
+[33mcommit 2ed4300540c2b279cbdd4ca1765e39de7346a5ad[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 12:16:28 2023 -0500
+
+    error
+
+[33mcommit 863d25b05017ff5711c923668f884db58713b5c5[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 12:10:34 2023 -0500
+
+    peticiones
+
+[33mcommit ff47a389b43449c862f156f196bdf5a285b867da[m
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Wed May 10 11:59:12 2023 -0500
+
+    Vista terminada
+
+[33mcommit 616df3b7da24127a0992f533e3c6f5896e8cb19c[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 10:34:27 2023 -0500
+
+    p
+
+[33mcommit af8b8ae2fbc6364e24fdf4300ed125da53cf2325[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 10:32:21 2023 -0500
+
+    peticiones
+
+[33mcommit cbeb759d14bc4847e7a4b6e6fded7b4b83e404c3[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 09:37:03 2023 -0500
+
+    navegacion
+
+[33mcommit f31f73e48503b66a317bfcb0391b2249365756fc[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 09:13:10 2023 -0500
+
+    test
+
+[33mcommit 0c642266200aea219e8136272b0f99f4f72c0513[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 08:52:54 2023 -0500
+
+    cammbiando el package
+
+[33mcommit 1a8bd1a7aa3fc93b712f1fc1686074ac66af1d71[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 08:19:07 2023 -0500
+
+    configurando rutas
+
+[33mcommit a782fe80e1cfc341613e7be92ea814b2fa086524[m
+Merge: 07564b5 942fd7b
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Wed May 10 04:21:57 2023 -0500
+
+    Merch
+
+[33mcommit 07564b56fc1fae63305dc7e581cb037e80f6fe9d[m
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Wed May 10 04:13:16 2023 -0500
+
+    vistas
+
+[33mcommit 2702e6c0d0e338c25ba844a830d81cb1a3590c9d[m
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Wed May 10 04:11:01 2023 -0500
+
+    Vistas pago, rutas
+
+[33mcommit 942fd7bfc669a3c3de94cd06e7311c7a29243a2e[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 03:34:26 2023 -0500
+
+    dependencias de map
+
+[33mcommit bf760f4bbea3440315e09403173409b8ac17c4e7[m
+Merge: 50a6137 7cd2b9e
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 02:54:46 2023 -0500
+
+    Merge branch 'main' of https://github.com/robertPertuz/proyectoMovil
+
+[33mcommit 50a61371ed9f8df7aae3502a13fe63a8b9706842[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 02:54:42 2023 -0500
+
+    logo
+
+[33mcommit 7cd2b9e165baf48a782926d415d9a1ef4e7ca77b[m
+Merge: 819c366 5fe9dce
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Wed May 10 02:38:36 2023 -0500
+
+    Merge branch 'main' of https://github.com/robertPertuz/proyectoMovil
+
+[33mcommit 819c366944005923ba5d69b216445b2df939b384[m
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Wed May 10 02:36:31 2023 -0500
+
+    Registro
+
+[33mcommit 663e2c44df9766769fccdfe3115cd37965b671a6[m
+Author: Nemer7 <nvelandia@unicesar.edu.co>
+Date:   Wed May 10 02:33:00 2023 -0500
+
+    Registro
+
+[33mcommit 5fe9dceadd27aaaae5dc103f66c596f9a4460d76[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 02:00:23 2023 -0500
+
+    Profile
+
+[33mcommit 1c0fcaa2c081b0250330f4b50a837e2a0efe6cf1[m[33m ([m[1;31morigin/nemer[m[33m)[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed May 10 00:48:08 2023 -0500
+
+    login
+
+[33mcommit 428bd3a52cd522409bb985050a62c974a1890916[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Tue May 9 22:08:08 2023 -0500
+
+    1
+
+[33mcommit b2cc34809e93c6c0ed0bbf8989a41f33e7d58acc[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Tue May 9 22:04:15 2023 -0500
+
+    images
+
+[33mcommit 45b801e55df91b22322a14d401e88d0156fdf611[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Thu Apr 20 23:00:13 2023 -0500
+
+    login 1.1.1
+
+[33mcommit 35feabdc6756efef3ec09b034b3beced3f7de22b[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Thu Apr 20 22:54:24 2023 -0500
+
+    inicio de sesion 1.1
+
+[33mcommit 89e179c8713d7d2fc37201e8ff83273d5f09bd6d[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Thu Apr 20 18:07:30 2023 -0500
+
+    primer login
+
+[33mcommit f5c656fb30a37d9c795468d30bfdc9dbebc4b414[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Thu Apr 20 16:55:59 2023 -0500
+
+    get
+
+[33mcommit 515c8371afb30b2884f1603c65d57ecdc0eadded[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Thu Apr 20 15:26:36 2023 -0500
+
+    clase User
+
+[33mcommit af0b5f3245ab57bd41561c509a2aa83a2453725f[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Thu Apr 20 15:20:41 2023 -0500
+
+    carpetas
+
+[33mcommit 051fc1db7409d09193cd879d3f84dbb0f040f5cb[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed Apr 19 00:34:46 2023 -0500
+
+    subiendo carpeta
+
+[33mcommit bdd7d401856cbe4355be53af24835d3bcbf82908[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Wed Apr 19 00:10:15 2023 -0500
+
+    subiendo cambios
+
+[33mcommit 9351b97f3b751bf53ef582e643ff0829c74e8c05[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Tue Apr 18 23:58:20 2023 -0500
+
+    hola
+
+[33mcommit 08d257898921db755ff90a318fc9813fc03b0aff[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Tue Apr 18 23:50:27 2023 -0500
+
+    first comit
+
+[33mcommit 3c69330e0878f7e733c0dfc12662c510ad2b0769[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Tue Apr 18 23:35:12 2023 -0500
+
+    first commit
+
+[33mcommit e903e061bf35336e321a7353b9cab8a20654e4a4[m
+Author: robertPertuz <ralbertopertuz@unicesar.edu.co>
+Date:   Tue Apr 18 23:28:26 2023 -0500
+
+    iconos
