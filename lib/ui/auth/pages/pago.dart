@@ -1,5 +1,9 @@
+import 'package:com.proyecto.busmate/ui/auth/pages/profileUser.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import '../../../domain/controller/gestionPago.dart';
 
 class PaymentView extends StatefulWidget {
   @override
@@ -9,9 +13,9 @@ class PaymentView extends StatefulWidget {
 class _PaymentViewState extends State<PaymentView> {
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   late QRViewController controller;
-  String _qrText = '';
-  double _availableBalance = 100.0;
+  String _qrText = ' ';
   int _ticketCount = 1;
+  bool isScanningEnabled = true;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +47,7 @@ class _PaymentViewState extends State<PaymentView> {
               child: Column(
                 children: [
                   Text(
-                    'Saldo disponible: \$$_availableBalance',
+                    'Saldo disponible: \$',
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
@@ -91,11 +95,56 @@ class _PaymentViewState extends State<PaymentView> {
 
   void _onQRViewCreated(QRViewController controller) {
     this.controller = controller;
-    controller.scannedDataStream.listen((scanData) {
-      setState(() {
-        _qrText = scanData.code!;
-      });
+    final gestionPago firebaseService = gestionPago();
+
+    controller.scannedDataStream.listen((scanData) async {
+      if (isScanningEnabled) {
+        setState(() {
+          _qrText = scanData.code!;
+          isScanningEnabled = false;
+        });
+
+        final User? currentUser = await firebaseService.getCurrentUser();
+        if (currentUser != null) {
+          final String userEmail = currentUser.email!;
+          final double newBalance = 2000.0;
+
+          // Llamar al método para actualizar el saldo
+          firebaseService.updateBalance(userEmail, newBalance);
+          _showPaymentSuccessMessage();
+        }
+      }
     });
+  }
+
+  void _showPaymentSuccessMessage() {
+    if (mounted) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Pago Exitoso'),
+            content: Text('El pago se ha realizado con éxito.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  if (mounted) {
+                    setState(() {
+                      isScanningEnabled = true;
+                    });
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => Profile()),
+                      (Route<dynamic> route) => false,
+                    );
+                  }
+                },
+                child: Text('Aceptar'),
+              ),
+            ],
+          );
+        },
+      );
+    }
   }
 
   @override
